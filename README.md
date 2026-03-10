@@ -142,7 +142,55 @@ Every field carries metadata for auditability:
 - Avoids depending on brittle HTML scraping for core infrastructure
 - Designed with data provenance, reproducibility, and permissions in mind for potential public-health use
 
-## First Milestone
+## Implementation Roadmap
+
+### Phase 1 — Write the Core Idea (Week 1-2)
+
+Before building anything, create a clear concept document. This becomes the foundation for everything else.
+
+The concept paper should explain:
+
+1. **The Problem** — Confusing serving sizes, hidden ingredient complexity, lack of machine-readable food data, difficulty tracking real nutrition intake
+2. **The Solution** — A national QR-based digital nutrition system where every packaged food links to a machine-readable database containing ingredients, nutrients, and portion calculations
+3. **What the System Does** — Scan food, input portion, calculate intake, detect allergens, analyze additives
+4. **Why It Helps Public Health** — Better diet tracking, diabetes management, obesity reduction, improved research data
+
+See [`CONCEPT_PAPER.md`](CONCEPT_PAPER.md) for the full concept document.
+
+> **If you do only one thing, do this:** Write a 2-3 page concept paper explaining the system clearly. That becomes your blueprint, something you can show collaborators, and the basis for research or funding.
+
+### Phase 2 — Define the Data Standard
+
+The biggest innovation is defining how food data should be structured.
+
+| Field | Description |
+|-------|-------------|
+| FoodID | Universal product identifier (GTIN/UPC) |
+| ProductName | Human-readable product name |
+| Manufacturer | Brand / manufacturer name |
+| NutritionPer100g | Standardized nutrition facts |
+| IngredientTree | Structured ingredient hierarchy |
+| Allergens | Declared allergen flags |
+| Additives | Classified additive list |
+| ServingConversions | Portion calculation mappings |
+
+This builds on how USDA FoodData Central stores food composition data, but adds structured ingredient hierarchies and portion calculations.
+
+See [`DATA_STANDARD.md`](DATA_STANDARD.md) for the full data standard specification.
+
+### Phase 3 — Build a Simple Prototype
+
+A simple prototype demonstrates the concept end-to-end:
+
+```
+scan QR
+  ↓
+product page opens
+  ↓
+user enters portion eaten
+  ↓
+nutrition automatically calculated
+```
 
 The initial prototype targets:
 
@@ -151,11 +199,46 @@ The initial prototype targets:
 - **Working QR/barcode lookup** via GTIN/UPC
 - **Accurate portion calculations** using FDA serving conventions
 
-### Recommended 3-Source Ingestion Stack
+**Recommended 3-Source Ingestion Stack:**
 
-1. **USDA FoodData Central** - Base nutrition reference data
-2. **Open Food Facts** - Broader product/ingredient coverage where official data is missing
-3. **Selective manufacturer-page scraping** - Targeted coverage for demo products
+1. **USDA FoodData Central** — Base nutrition reference data
+2. **Open Food Facts** — Broader product/ingredient coverage where official data is missing
+3. **Selective manufacturer-page scraping** — Targeted coverage for demo products
+
+Even a basic website demo helps people understand the concept.
+
+### Phase 4 — Share the Idea Publicly
+
+Once there is a concept + demo, start showing it to people:
+
+- Health researchers
+- Nutritionists
+- Public health groups
+- Open food data communities
+
+Organizations like the Centers for Disease Control and Prevention (CDC) and the National Institutes of Health (NIH) often explore new nutrition tracking ideas.
+
+### Phase 5 — Build a Coalition
+
+Big infrastructure ideas succeed when multiple groups support them.
+
+Possible allies:
+
+- Doctors and clinical practitioners
+- Diabetes associations
+- Nutrition researchers
+- Food transparency advocates
+
+When several groups support an idea, policymakers start paying attention.
+
+### Phase 6 — Policy Proposal
+
+Eventually the idea could evolve into a policy proposal for agencies like:
+
+- **U.S. Food and Drug Administration (FDA)**
+- **United States Department of Agriculture (USDA)**
+
+That stage may be years away, but the early groundwork is essential.
 
 ## Scraping Guidelines
 
