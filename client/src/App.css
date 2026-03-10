@@ -1,0 +1,424 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: #f8f9fa;
+  color: #212529;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: #1a7742;
+  color: white;
+  padding: 1.5rem 1rem 0.5rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  opacity: 0.85;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0;
+}
+
+.nav-tabs button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.nav-tabs button.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 600;
+  border-bottom: 2px solid white;
+}
+
+.nav-tabs button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.app-main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  color: #6c757d;
+  font-size: 0.8rem;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Search */
+.search-container {
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input:focus {
+  border-color: #1a7742;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-card:hover {
+  border-color: #1a7742;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.product-card-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+
+.product-card-info .brand {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.product-card-cal {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.product-card-cal .cal-num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a7742;
+}
+
+.product-card-cal .cal-label {
+  font-size: 0.7rem;
+  color: #6c757d;
+  text-transform: uppercase;
+}
+
+/* Detail */
+.detail-container {
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #1a7742;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.detail-header {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+}
+
+.detail-header h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.detail-meta {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.detail-meta span {
+  margin-right: 1rem;
+}
+
+.section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+}
+
+.section h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #1a7742;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.4rem;
+}
+
+/* Nutrition table */
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.nutrition-table tr {
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.nutrition-table td {
+  padding: 0.35rem 0;
+}
+
+.nutrition-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+
+.nutrition-table tr.major td {
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding-top: 0.5rem;
+}
+
+.nutrition-table tr.sub td:first-child {
+  padding-left: 1rem;
+}
+
+/* Ingredient tree */
+.ingredient-tree {
+  font-size: 0.9rem;
+}
+
+.ingredient-tree ul {
+  list-style: none;
+  padding-left: 1.25rem;
+}
+
+.ingredient-tree > ul {
+  padding-left: 0;
+}
+
+.ingredient-tree li {
+  padding: 0.15rem 0;
+}
+
+.ingredient-tree li::before {
+  content: "\2022";
+  color: #1a7742;
+  margin-right: 0.5rem;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tag.allergen {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+}
+
+.tag.additive {
+  background: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+/* Portion calculator */
+.portion-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.portion-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.portion-field label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.portion-field input,
+.portion-field select {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.portion-field input:focus,
+.portion-field select:focus {
+  border-color: #1a7742;
+}
+
+.portion-field input[type="number"] {
+  width: 100px;
+}
+
+.portion-btn {
+  background: #1a7742;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.portion-btn:hover {
+  background: #155f35;
+}
+
+.portion-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #e8f5e9;
+  border-radius: 8px;
+  border: 1px solid #a5d6a7;
+}
+
+.portion-result .result-summary {
+  font-size: 0.85rem;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.portion-result .result-cal {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a7742;
+}
+
+.portion-result .result-cal-label {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* Scanner */
+.scanner-container {
+  text-align: center;
+}
+
+.scanner-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.scanner-input-group input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  outline: none;
+  font-family: monospace;
+}
+
+.scanner-input-group input:focus {
+  border-color: #1a7742;
+}
+
+.scanner-input-group button {
+  background: #1a7742;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.scanner-hint {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: #dc3545;
+  background: #f8d7da;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+}

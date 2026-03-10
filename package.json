@@ -1,0 +1,14 @@
+{
+  "name": "dealth",
+  "version": "0.1.0",
+  "private": true,
+  "description": "National QR-based digital nutrition system",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "seed": "cd server && npm run seed",
+    "start": "cd server && npm start"
+  }
+}
